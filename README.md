@@ -17,7 +17,7 @@ UTF-8 是可变长度的编码格式，采用 1~4 字节表示一个 Unicode 字
 - `10111010 10111010 11100100` 转换成十六进制即 `BABAE4`，不是有效的 UTF-8 编码。
 
 ## 控制字符集（Control Character）中的 Delete 符
-[控制字符](https://en.wikipedia.org/wiki/Control_character)是一系列的非打印字符，主要用来作控制功能的用途。广泛使用但极其有限的 [ASCII 编码中共定义了 33 个字符](https://zh.wikipedia.org/wiki/ASCII#Control_characters)作为控制字符，这 33 个字符在 [ISO/IEC 2022](https://zh.wikipedia.org/wiki/ISO/IEC_2022) 标准中被重新划分，ASCII 中的 0x00-0x1F（共 30 个）被划入 [C0 控制字符集](https://en.wikipedia.org/wiki/C0_and_C1_control_codes#C0_controls)，剩下的 2 个分别是 0x20 即空格符` `和 0x7F 即 Del 符 `(delete)`，0x20 空格符其实是可打印字符（只是单独打印出来不能明显辨别）所以更新的一些标准没有把其作为控制字符。0x7F 即 Del 符是不可打印字符，在更新的一些标准中它仍是一个控制字符，只是在 ISO/IEC 2022 标准中没有划分其为 C0/C1，C0/C1 只是整个控制字符集中的两个子集。
+[控制字符](https://en.wikipedia.org/wiki/Control_character)是一系列的非打印字符，主要用来作控制功能的用途。广泛使用但极其有限的 [ASCII 编码中共定义了 33 个字符](https://zh.wikipedia.org/wiki/ASCII#Control_characters)作为控制字符，这 33 个字符在 [ISO/IEC 2022](https://zh.wikipedia.org/wiki/ISO/IEC_2022) 标准中被重新划分，ASCII 中的 0x00-0x1F（共 31 个）被划入 [C0 控制字符集](https://en.wikipedia.org/wiki/C0_and_C1_control_codes#C0_controls)，剩下的 2 个分别是 0x20 即空格符` `和 0x7F 即 Del 符 `(delete)`，0x20 空格符其实是可打印字符（只是单独打印出来不能明显辨别）所以更新的一些标准没有把其作为控制字符。0x7F 即 Del 符是不可打印字符，在更新的一些标准中它仍是一个控制字符，只是在 ISO/IEC 2022 标准中没有划分其为 C0/C1，C0/C1 只是整个控制字符集中的两个子集。
 
 Del 符在 Unicode 万国码中的表示是 U+007F。[Del 符](https://zh.wikipedia.org/wiki/Delete%E5%AD%97%E7%AC%A6)在古早的打孔卡打字时期是用来表示一个字符作废用的（语义同 HTML 的[`<del></del>`](https://webapps.stackexchange.com/a/15030)），因为其 ASCII 编码 0x7F 即二进制 `1111111` 刚好表示 7 个孔，于是打孔卡打错字想删除，将其改为 7 个孔就表示作废了。在现代计算机的打字环境下，跟 Del 符相等语义的使用已经不存在了，因为现代用户打错作废时都是直接使用退格键将错字直接删除不保留，计算机不像打孔卡那样不可“撤销”。所以现今计算机中 Del 符要么是无法打出来，要么是不使用（即打出来没效果），又或者给赋予了新的语义。前两者无实际意义不谈，赋予新的语义可以谈谈。
 
